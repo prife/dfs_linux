@@ -4,13 +4,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <sys/msg.h>
-
-#define MAX_TEXT 512
-
-struct dfsmsg_st {
-    long int type;
-    char buf[MAX_TEXT];
-};
+#include "dfs_packet.h"
 
 int main()
 {

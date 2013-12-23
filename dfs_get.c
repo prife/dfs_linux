@@ -4,11 +4,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <sys/msg.h>
-
-struct dfsmsg_st {
-    long int type;
-    char buf[BUFSIZ];
-};
+#include "dfs_packet.h"
 
 int main()
 {
