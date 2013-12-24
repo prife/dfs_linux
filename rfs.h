@@ -1,9 +1,7 @@
 #ifndef RFS_H
 #define RFS_H
 
-#define FILE_NAME_MAX 256
-#define DFS_MSG_BUF_SIZE (1024*32)
-#define DFS_RW_BUF_SIZE  (1024*16)
+#define DFS_MSG_BUF_SIZE 512//(1024*16)
 
 struct dfsmsg_st
 {
@@ -24,28 +22,28 @@ enum dfsmsg_type
 //open (const char *pathname, int flags, mode_t mode)
 struct msg_open_args
 {
-    char path[FILE_NAME_MAX];
     int flags;
     int mode;
+    char path[0];
 };
 
 struct msg_open_ret
 {
     int ret;
-}
+};
 
 //ssize_t write(int fd, const void *buf, size_t count);
 struct msg_write_args
 {
     int fd;
-    char buf[RFS_BUF_SIZE];
     size_t count;
+    char buf[0];
 };
 
 struct msg_write_ret
 {
     ssize_t ret;
-}
+};
 
 //int close(int fd)
 struct msg_close_args
@@ -56,7 +54,7 @@ struct msg_close_args
 struct msg_close_ret
 {
     int ret;
-}
+};
 
 #endif // RFS_H
 
